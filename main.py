@@ -15,6 +15,8 @@ tortuga.forward(75)
 print("blooper")
 print("mega blooper")
 
+print("probando comandos")
+
 for i in range(4):
     tortuga.forward(50)
     tortuga.right(90)
