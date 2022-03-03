@@ -11,7 +11,7 @@ tortuga.forward(50)
 tortuga.right(135)
 tortuga.forward(75)
 
-
+print("blooper")
 
 for i in range(4):
     tortuga.forward(50)
