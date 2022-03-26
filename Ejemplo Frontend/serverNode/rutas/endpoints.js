@@ -79,6 +79,24 @@ router.post('/eliminar',(req,res)=>{
     });
 });
 
+
+
+
+
+// --------------- ENDPOINT PARA UN FILTRO BÁSICO ------------
+router.post("/filtro", (req, res)=>{
+    const {nombre} = req.body
+    // para todo lo que contenga - ejemplo, si se postea Z, devolverá los catedráticos : "ZULMA", "MARTINESZ", "ALVAREZ"
+    sql = "Select * from catedratico where catedratico.Nombre Like '%"+nombre+"%'"
+    // para cuando se desee encontrar solo los que COMIENCEN con el dato like + nombre + %
+    // si se quiere que TERMINEN -> like %nombre
+    let result = mysqlconnection.query(sql, (err, rows)=>{
+        if(err) throw err;
+     
+        res.json(rows);
+        
+    })
+});
 // ! IMPORTANTE
 
 module.exports = router;
