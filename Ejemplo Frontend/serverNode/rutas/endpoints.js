@@ -1,3 +1,4 @@
+const { Console } = require('console');
 const { TIMEOUT } = require('dns');
 const express = require('express');
 const router = express.Router(); // crea objeto para definir rutas
@@ -97,6 +98,30 @@ router.post("/filtro", (req, res)=>{
         
     })
 });
-// ! IMPORTANTE
 
+
+// ------------------- LOGIN SIMPLE --------------------
+
+router.post('/login', (req,res)=>{
+    const {usuario, password} = req.body // Como nota: a la tabla de Usuario le di el campo "usuario" como UQ,
+    //lo que significa unique, y evita que la persona posea el mismo nombre de usuario
+    console.log(req.body)
+    
+    sql = "SELECT carnet,usuario from Usuario where usuario = \""+usuario+"\" AND password = \""+password+"\";"
+    /**si quisieran usar encriptacion, su insert a la base de datos debe obtener el dato que se envía
+     * codigicar este dato ya sea en sha256, md5 etc y guardar esa contraseña en la base de datos
+     * aquí se haría lo mismo, solo que en lugar de insert, es select
+     */
+  
+    let result = mysqlconnection.query(sql,[usuario,password],(err,row)=>{
+        if (err) throw err;
+        res.json(row[0]) // solo necesito mi usuario en front end para confirmar y almacenar
+        
+    })
+    console.log(result)
+})
+
+// ! IMPORTANTE
+// el module exports ayuda a que la información de 'endpoints' sea accessible a cualquier otra 
+//función a la hora de ser importado
 module.exports = router;

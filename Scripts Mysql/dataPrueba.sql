@@ -17,4 +17,5 @@ insert into calificacion(comentario,calificacion,catedratico_idCatedratico,curso
 insert into calificacion(comentario,calificacion,catedratico_idCatedratico,curso_codigo,Usuario_carnet) values ()insert into catedratico(Nombre,tipo) values()
 
 -- USUARIO
-insert into Usuario (carnet, usuario, password) values (201504341, LopDlMa, ejemploP)
+insert into Usuario (carnet, usuario, password) values (201504341, 'LopDlMa', 'password')
+insert into Usuario (carnet, usuario, password) values (202002020, 'Usuario2', 'password')

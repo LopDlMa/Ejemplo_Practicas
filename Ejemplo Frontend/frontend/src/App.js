@@ -2,6 +2,8 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import {Post} from './Post/Post'
 import {Consulta} from './Consulta/Consulta'
 import {Filtro} from './Filtro/Filtro'
+import {Login} from './Login/Login'
+import {VerUsuario} from './Datos/VerUsuario'
 
 function App() {
   return (
@@ -19,7 +21,13 @@ function App() {
         <Route path='/Consulta' element={<Consulta></Consulta>}/>
       </Routes>
 
-      
+      <Routes>
+        <Route path='/datos' element={<VerUsuario/>}/>
+      </Routes>
+
+      <Routes>
+        <Route path='/' element={<Login></Login>}/>
+      </Routes>
       
     </BrowserRouter>
   );
