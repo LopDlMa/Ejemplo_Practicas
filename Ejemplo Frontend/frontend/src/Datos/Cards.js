@@ -4,7 +4,7 @@ import { Card, ListGroup, Button } from 'react-bootstrap'
 export function Cards() {
     const userStored = localStorage.getItem('user')
     const carnet = localStorage.getItem('carnet')
-    
+    // obtengo los datos de local storage
     
 
     return (
